@@ -10,6 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const userrole_id = 0;
+
+    protected $table = "user";
+
     /**
      * The attributes that are mass assignable.
      *

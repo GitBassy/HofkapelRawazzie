@@ -17,22 +17,27 @@ bericht toevoegen
 
     echo Form::model($user, array('route' => array('user.update', $user->id)))
     
-    <form method="POST" action="/items/store">
+    <form method="POST" action="/news/store">
     @csrf
     <table>
         <caption>
-        <h1>Add new item</h1>
+        <h1>Aanmaken van een evenement</h1>
         </caption>
         <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
+            <td>Naam</td>
+            <td><input type="text" name="name" id="name"></td>
         </tr>
         <tr>
-            
-        <td><input type="text" name="name" id="name"></td>
-        <td><input type="text" name="type" id="type"></td>
-        <td><input type="text" name="desc" id="desc"></td>
+            <td>Type</td>
+            <td><input type="text" name="type" id="type"></td>
+        </tr>
+        <tr>
+            <td>Beschrijving</td>
+            <td><input type="text" name="desc" id="desc"></td>
+        </tr>
+        <tr>
+            <td>Startdatum</td>
+            <td><input type="date" name="dateStart" id="dateStart"></td>
 
         </tr>
         

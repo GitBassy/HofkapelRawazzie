@@ -15,6 +15,8 @@ Route::resource('/home', 'HomeController');
 Route::resource('/agenda', 'AgendaController');
 Route::resource('/contact', 'ContactController');
 
+Route::resource('/news', 'MessageController');
+
 Auth::routes();
 
 //User and Admin acces
@@ -25,5 +27,5 @@ Route::middleware(['auth', 'isUser'])->group(function(){
 
 //Admin acces only
 Route::middleware(['auth', 'isAdmin'])->group(function(){
-    Route::resource('/berichttoevoegen', 'BerichtToevoegen');
+    Route::resource('/news', 'MessageController');
 });

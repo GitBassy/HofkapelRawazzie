@@ -47,7 +47,7 @@
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
 
-                    @elseif ( Auth::user()->role_id === 1 )
+                    @elseif ( Auth::user()->userrole_id === 1 )
                     <ul class="nav navbar-nav">
                         &nbsp;
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
@@ -57,7 +57,7 @@
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
 
-                    @elseif ( Auth::user()->role_id === 2 )
+                    @elseif ( Auth::user()->userrole_id === 2 )
                         <ul class="nav navbar-nav">
                             &nbsp;
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>

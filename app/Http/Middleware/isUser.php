@@ -16,7 +16,7 @@ class isUser
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role_id  > 0){
+        if(Auth::user()->userrole_id  > 0){
             return $next($request);
         }
 
