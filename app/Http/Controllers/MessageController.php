@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BerichtController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,6 +35,28 @@ class BerichtController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'title' => 'required|unique:posts|max:100',
+            'type' => 'required',
+            'subject' => 'required',
+            'date' => 'required',
+            'duedate' => 'required',
+            'content' => 'required|max:300',            
+        ]);
+        
+        $event = new Event();
+ 
+        $event->title = request('title');
+        $event->type = request('type');        
+        $event->subject = request('subject');        
+        $event->date = request('date');        
+        $event->duedate = request('duedate');
+        $event->content = request('content');        
+ 
+        $event->save();
+
+        $file = new EventFile();
+ 
     }
 
     /**
