@@ -25,7 +25,7 @@
    <!-- Form::model($user, array('route' => array('user.update', $user->id)))
     echo Form::file($name, $attributes = array()); -->
 
-    <form method="POST" action="/news/store">
+    <form method="POST" action="/news/store" enctype="multipart/form-data">
     @csrf
     <table style="margin-left: auto; margin-right: auto;" >
         <tr>
@@ -60,7 +60,13 @@
         <tr>
             <td>Afbeelding selecteren</td>
             <td><input type="file" name="inpImg" id="inpImg" accept="image/x-png,image/gif,image/jpeg"
-            onchange="document.getElementById('previewImg').src = window.URL.createObjectURL(this.files[0])"></td>
+            onchange="document.getElementById('previewImg').src = window.URL.createObjectURL(this.files[0]); 
+            var fileInput = document.getElementById('inpImg'); var filename = fileInput.files[0].name; 
+            document.getElementById('filename').value = filename"></td>
+        </tr>
+        <tr>
+            <td>Naam afbeelding</td>
+            <td><input type="text" name="filename" id="filename"></td>
         </tr>
         <tr>
             <td>Voorbeeld afbeelding</td>

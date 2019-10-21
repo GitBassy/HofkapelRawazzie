@@ -38,10 +38,9 @@ class MessageController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|unique:posts|max:100',
             'type' => 'required',
-            'subject' => 'required',
             'date' => 'required',
             'duedate' => 'required',
-            'content' => 'required|max:300',            
+            'content' => 'required|max:300',                        
         ]);
         
         $event = new Event();
@@ -54,8 +53,22 @@ class MessageController extends Controller
         $event->content = request('content');        
  
         $event->save();
+        if ($request->has('file'))
+        {
+            $file = new EventFile();
+            // TODO:
+            // Get last event id from db, increment by one to fill in below
+            $file->event_id = 1;
+            $fileItem = $request->file('file'); 
 
-        $file = new EventFile();
+            $file->filename = $fileItem->getClientOriginalName();
+            $file->name = request('filename');        
+            $file->date = request('date');        
+            $file->duedate = request('duedate');
+            $file->content = request('content'); 
+
+            $file->save();
+        }
  
     }
 
