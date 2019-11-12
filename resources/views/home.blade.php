@@ -22,7 +22,9 @@
     <div class="divider-custom divider-light">
       <div class="divider-custom-line"></div>
       <div class="divider-custom-icon">
-        <button onclick="window.location.href='/contact'" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" id="homebtnContact">Neem contact op!</button>
+        <button onclick="window.location.href='/contact'" class="navbar-toggler" type="button" data-toggle="collapse" 
+		data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" 
+		id="homebtnContact">Neem contact op!</button>
       </div>
       <div class="divider-custom-line"></div>
     </div>
