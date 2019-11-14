@@ -25,7 +25,7 @@
    <!-- Form::model($user, array('route' => array('user.update', $user->id)))
     echo Form::file($name, $attributes = array()); -->
 
-    <form method="POST" action="/news/store" enctype="multipart/form-data">
+    <form method="POST" action="/news" enctype="multipart/form-data">
     @csrf
     <table style="margin-left: auto; margin-right: auto;" >
         <tr>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td>Type</td>
-            <td> <select>
+            <td> <select id="eventtype" name="eventtype">
                 <option value="Rehearsal">Training</option>
                 <option value="Performance">Optreden</option>
                 <option value="News">Nieuwsbericht</option>
@@ -42,16 +42,12 @@
             </select> </td>
         </tr>
         <tr>
-            <td>Onderwerp</td>
-            <td><input type="text" name="subject" id="subject"></td>
-        </tr>
-        <tr>
             <td>Startdatum</td>
-            <td><input type="date" name="dateStart" id="dateStart"></td>
+            <td><input type="date" name="date" id="date"></td>
         </tr>
         <tr>
             <td>Einddatum</td>
-            <td><input type="date" name="dateEnd" id="dateStart"></td>
+            <td><input type="date" name="duedate" id="duedate"></td>
         </tr>
         <tr>
             <td>Beschrijving</td>

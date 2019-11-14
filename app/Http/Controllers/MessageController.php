@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\Event;
+use App\EventFile;
 
 class MessageController extends Controller
 {
@@ -13,7 +16,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return view('berichttoevoegen.index');
+        return view('news.index');
     }
 
     /**
@@ -36,21 +39,20 @@ class MessageController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:100',
-            'type' => 'required',
+            'title' => 'required|unique:event|max:100',
+            'eventtype' => 'required',
             'date' => 'required',
             'duedate' => 'required',
-            'content' => 'required|max:300',                        
+            'desc' => 'required|max:800',                        
         ]);
         
         $event = new Event();
  
         $event->title = request('title');
-        $event->type = request('type');        
-        $event->subject = request('subject');        
+        $event->type = request('eventtype');               
         $event->date = request('date');        
         $event->duedate = request('duedate');
-        $event->content = request('content');        
+        $event->description = request('desc');        
  
         $event->save();
         if ($request->has('file'))
@@ -62,13 +64,13 @@ class MessageController extends Controller
             $fileItem = $request->file('file'); 
 
             $file->filename = $fileItem->getClientOriginalName();
-            $file->name = request('filename');        
-            $file->date = request('date');        
-            $file->duedate = request('duedate');
-            $file->content = request('content'); 
-
+            $file->name = request('filename');    
+           // $file->description = request('filedescription'); 
+            $file->path = "img/";
+            $file->type = "img";
             $file->save();
         }
+        return view('news.index');
  
     }
 
