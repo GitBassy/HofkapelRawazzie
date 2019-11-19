@@ -39,7 +39,7 @@ class MessageController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'title' => 'required|unique:event|max:100',
+            'title' => 'required|unique:event|max:60',
             'eventtype' => 'required',
             'date' => 'required',
             'duedate' => 'required',
