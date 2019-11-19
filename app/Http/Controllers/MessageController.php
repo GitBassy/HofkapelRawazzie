@@ -59,14 +59,13 @@ class MessageController extends Controller
         {
             $file = new EventFile();
             // TODO:
-            // Get last event id from db, increment by one to fill in below
-            $file->event_id = 1;
+            //$file->event_id = 1;
             $fileItem = $request->file('file'); 
 
             $file->filename = $fileItem->getClientOriginalName();
             $file->name = request('filename');    
            // $file->description = request('filedescription'); 
-            $file->path = "img/";
+            $file->path = "images/";
             $file->type = "img";
             $file->save();
         }
