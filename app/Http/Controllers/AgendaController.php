@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use DB;
+use View;
 
 class AgendaController extends Controller
 {
@@ -13,7 +16,14 @@ class AgendaController extends Controller
      */
     public function index()
     {
+        $userId = Auth::id();
+       $user = Auth::user();
+print($user->id);
+print($userId);
+
+        $events = DB::table('event')->where('id', $user->id)->get();
         return view('agenda.index');
+        //return View::make('agenda.index'); //->with('events',$events);
     }
 
     /**
