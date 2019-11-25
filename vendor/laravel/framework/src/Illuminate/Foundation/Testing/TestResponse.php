@@ -90,6 +90,38 @@ class TestResponse
     }
 
     /**
+     * Assert that the response has a 201 status code.
+     *
+     * @return $this
+     */
+    public function assertCreated()
+    {
+        $actual = $this->getStatusCode();
+
+        PHPUnit::assertTrue(
+            201 === $actual,
+            'Response status code ['.$actual.'] does not match expected 201 status code.'
+        );
+
+        return $this;
+    }
+
+    /**
+     * Assert that the response has the given status code and no content.
+     *
+     * @param  int  $status
+     * @return $this
+     */
+    public function assertNoContent($status = 204)
+    {
+        $this->assertStatus($status);
+
+        PHPUnit::assertEmpty($this->getContent(), 'Response content is not empty.');
+
+        return $this;
+    }
+
+    /**
      * Assert that the response has a not found status code.
      *
      * @return $this
@@ -469,11 +501,16 @@ class TestResponse
      *
      * @param  string  $path
      * @param  mixed  $expect
+     * @param  bool  $strict
      * @return $this
      */
-    public function assertJsonPath($path, $expect)
+    public function assertJsonPath($path, $expect, $strict = false)
     {
-        PHPUnit::assertEquals($expect, $this->json($path));
+        if ($strict) {
+            PHPUnit::assertSame($expect, $this->json($path));
+        } else {
+            PHPUnit::assertEquals($expect, $this->json($path));
+        }
 
         return $this;
     }

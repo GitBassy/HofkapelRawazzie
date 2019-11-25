@@ -12,7 +12,7 @@
 */
 Route::resource('/', 'HomeController');
 Route::resource('/home', 'HomeController');
-Route::resource('/agenda', 'AgendaController');
+Route::resource('/event', 'EventController');
 Route::resource('/contact', 'ContactController');
 
 Route::resource('/news', 'MessageController');

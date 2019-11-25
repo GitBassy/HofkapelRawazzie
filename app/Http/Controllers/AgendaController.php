@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
-use DB;
-use View;
+use App\Event;
+use App\EventFile;
 
 class AgendaController extends Controller
 {
@@ -17,13 +18,8 @@ class AgendaController extends Controller
     public function index()
     {
         $userId = Auth::id();
-       $user = Auth::user();
-print($user->id);
-print($userId);
-
-        $events = DB::table('event')->where('id', $user->id)->get();
-        return view('agenda.index');
-        //return View::make('agenda.index'); //->with('events',$events);
+        $events = Event::all();//->where('id', $userId)->get();
+        return view('agenda.index')->with('events', $events);
     }
 
     /**
@@ -45,6 +41,38 @@ print($userId);
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'title' => 'required|unique:event|max:60',
+            'eventtype' => 'required',
+            'date' => 'required',
+            'duedate' => 'required',
+            'desc' => 'required|max:800',                        
+        ]);
+        
+        $event = new Event(); 
+        $event->title = request('title');
+        $event->type = request('eventtype');               
+        $event->date = request('date');        
+        $event->duedate = request('duedate');
+        $event->description = request('desc');        
+ 
+        $event->save();
+        if ($request->has('file'))
+        {
+            $file = new EventFile();
+            // TODO:
+            //$file->event_id = 1;
+            $fileItem = $request->file('file'); 
+
+            $file->filename = $fileItem->getClientOriginalName();
+            $file->name = request('filename');    
+           // $file->description = request('filedescription'); 
+            $file->path = "images/";
+            $file->type = "img";
+            $file->save();
+        }
+        return view('news.index');
+ 
     }
 
     /**
