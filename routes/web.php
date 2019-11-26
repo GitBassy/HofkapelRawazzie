@@ -11,11 +11,11 @@
 |
 */
 Route::resource('/', 'HomeController');
-Route::resource('/home', 'HomeController');
+Route::resource('/home', 'HomeController')->only('index');
 Route::resource('/event', 'EventController');
 Route::resource('/contact', 'ContactController');
 
-Route::resource('/news', 'MessageController');
+//Route::resource('/news', 'MessageController');
 
 Auth::routes();
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Event;
 use App\EventFile;
@@ -19,7 +18,7 @@ class EventController extends Controller
     {
         $userId = Auth::id();
         $events = Event::all();//->where('id', $userId)->get();
-        return view('agenda.index')->with('events', $events);
+        return view('event.index')->with('events', $events);
     }
 
     /**
@@ -30,6 +29,7 @@ class EventController extends Controller
     public function create()
     {
         //
+        return view('event.create');
     }
 
     /**
@@ -84,6 +84,7 @@ class EventController extends Controller
     public function show($id)
     {
         //
+        return view('event.show', ['event' => Event::findOrFail($id)]);
     }
 
     /**

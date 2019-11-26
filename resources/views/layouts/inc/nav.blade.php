@@ -43,7 +43,7 @@
                     <ul class="navbar-nav mr-auto">
                         &nbsp;
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/agenda">Agenda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/event">Agenda</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
 
@@ -51,7 +51,7 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/agenda">Agenda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/event">Agenda</a></li>
                         <li class="nav-item"><a class="nav-link" href="/afmelden">Afmelden</a></li>
                         <li class="nav-item"><a class="nav-link" href="/overzicht">Overzicht</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
@@ -61,10 +61,10 @@
                         <ul class="nav navbar-nav">
                             &nbsp;
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/agenda">Agenda</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/event">Agenda</a></li>
                             <li class="nav-item"><a class="nav-link" href="/afmelden">Afmelden</a></li>
                             <li class="nav-item"><a class="nav-link" href="/overzicht">Overzicht</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/berichttoevoegen">Bericht Toevoegen</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/event/create">Bericht Toevoegen</a></li>
                             <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                         </ul>
                     @endif
