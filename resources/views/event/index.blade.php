@@ -4,29 +4,34 @@
 @section('content')
 
 <div>
-<h1>Agenda</h1>
+<h1 class="text-center">Agenda</h1>
 
     <!--
     This shows a list of events
 
     TODO:
     - image
-    - layout
+    - layout (fixed size + color)
       -->
-    <ul>
+    
+    <div class="container">
+  <div class="row">
 @foreach($events as $event)
-  <li>
+
+    <div class="col-sm">
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ $event->title }}</h5>
-        <p class="card-text">{{ $event->description }}</p>
-        <a href="/event/{{$event->id}}" class="btn btn-primary">Bekijk details</a>
-      </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ $event->title }}</h5>
+          <p class="card-text">{{ $event->description }}</p>
+          <a href="/event/{{$event->id}}" class="btn btn-primary">Bekijk details</a>
+        </div>
+        <img src="..." class="card-img-top" alt="...(image)...">
     </div>
-  </li>
-@endforeach
-</ul>
+    </div>
+
+    
+    @endforeach
+  </div>
 </div>
 
 
