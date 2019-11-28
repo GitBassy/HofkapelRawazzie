@@ -25,7 +25,7 @@
    <!-- Form::model($user, array('route' => array('user.update', $user->id)))
     echo Form::file($name, $attributes = array()); -->
 
-    <form method="POST" action="/news" enctype="multipart/form-data">
+    <form method="POST" action="/event" enctype="multipart/form-data">
     @csrf
     <table style="margin-left: auto; margin-right: auto;" >
         <tr>

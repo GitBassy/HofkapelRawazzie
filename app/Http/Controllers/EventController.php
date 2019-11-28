@@ -71,7 +71,10 @@ class EventController extends Controller
             $file->type = "img";
             $file->save();
         }
-        return view('news.index');
+        return redirect()->action(
+            'EventController@index', []
+        );
+        return view('event.index');
  
     }
 

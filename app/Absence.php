@@ -8,4 +8,6 @@ class Absence extends Model
 {
     //
     protected $table = "absence";
+    
+    public $timestamps = true;
 }

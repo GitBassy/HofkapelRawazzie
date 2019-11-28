@@ -4,7 +4,7 @@
 @section('content')
 
 <div>
-<h1>Afwezigheid in de vereniging</h1>
+<h1>Afwezigheid in de vereniging voor evenementen</h1>
 
     <!--
     This shows a list of absences
@@ -13,17 +13,24 @@
     TODO:
     - layout
       -->
-    <ul>
+    <table class="table-responsive table">
+    <tr>
+    <th>ID</th>
+    <th>Titel</th>
+    <th>Lid</th>
+    <th>Vertraging</th>
+    <th>Verklaring</th>
+  </tr>
 @foreach($absences as $absence)
-  <li>
-    <p class="card-text">{{ $absence->event_id }}</p>
-        <strong><p class="card-title">{{ $absence->title }}</p></strong>
-        <p class="card-text">{{ $absence->name }}</p>
-        
-        <p class="card-text">{{ $absence->delay }} minuten</p>
-  </li>
+<tr>
+    <td>{{ $absence->event_id }}</td>
+    <td>{{ $absence->title }}</td>
+    <td>{{ $absence->name }}</td>
+    <td>{{ $absence->delay }}</td>
+    <td>{{ $absence->remark }}</td>
+</tr>
 @endforeach
-</ul>
+</table>
 </div>
 
 @endsection
