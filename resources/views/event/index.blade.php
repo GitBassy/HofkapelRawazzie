@@ -18,7 +18,7 @@
   <div class="row">
 @foreach($events as $event)
 
-    <div class="col-sm">
+    <div class="col-sm py-3">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">{{ $event->title }}</h5>

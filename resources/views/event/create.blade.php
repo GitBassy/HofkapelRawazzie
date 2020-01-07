@@ -50,6 +50,10 @@
             <td><input type="date" name="duedate" id="duedate"></td>
         </tr>
         <tr>
+            <td>Tijdsduur (in minuten)</td>
+            <td><input type="number" name="duration" id="duration"></td>
+        </tr>
+        <tr>
             <td>Beschrijving</td>
             <td><input type="text" name="desc" id="desc"></td>
         </tr>

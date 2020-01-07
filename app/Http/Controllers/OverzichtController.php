@@ -43,6 +43,7 @@ class OverzichtController extends Controller
     {
         return view('overzicht.show');
     }
+    
     /**
      * Store a newly created resource in storage.
      *
